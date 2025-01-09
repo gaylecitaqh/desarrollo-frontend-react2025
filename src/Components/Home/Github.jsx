@@ -6,7 +6,7 @@ const Github =() =>{
                 
                 
         <a href="https://github.com/gaylecitaqh/desarrollo-frontend-react2025" target="_blank">
-                        <img src={GithubLogo} className="logoGit" alt="Github logo" />
+                        <img width="300" height="200" src={GithubLogo} className="logoGit" alt="Github logo" />
         </a>
     </div>
     );
