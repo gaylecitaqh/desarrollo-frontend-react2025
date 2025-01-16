@@ -1,6 +1,6 @@
-import React from "react";
+//import React from "react";
 
-function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockChange }) {
+const SearchBar = ({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) => {
   return (
     <form>
       <input

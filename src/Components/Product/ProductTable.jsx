@@ -1,4 +1,5 @@
-import React from "react";
+
+//import React from "react";
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
@@ -15,11 +16,9 @@ function ProductTable({ products, filterText, inStockOnly }) {
     }
     if (product.category !== lastCategory) {
       rows.push(
-        <ProductCategoryRow
-          category={product.category}
-          key={product.category}
-        />
+        <ProductCategoryRow category={product.category} key={product.category} />
       );
+     // lastCategory = product.category;
     }
     rows.push(<ProductRow product={product} key={product.name} />);
     lastCategory = product.category;
@@ -36,6 +35,6 @@ function ProductTable({ products, filterText, inStockOnly }) {
       <tbody>{rows}</tbody>
     </table>
   );
-}
+};
 
 export default ProductTable;
