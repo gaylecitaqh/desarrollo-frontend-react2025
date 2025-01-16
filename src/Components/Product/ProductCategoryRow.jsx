@@ -1,9 +1,11 @@
 import React from "react";
 
-function ProductCategoryRow({ category }) {
+const  ProductCategoryRow = ({category} ) => {
   return (
     <tr>
-      <th colSpan="2">{category}</th>
+      <th colSpan="2">
+        {category}
+      </th>
     </tr>
   );
 }

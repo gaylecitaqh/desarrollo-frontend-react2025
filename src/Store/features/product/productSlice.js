@@ -20,8 +20,11 @@ export const productSlice = createSlice({
   name:'product',
   initialState,
   reducers:{
-    setInitialValue:(state,payload)=>{
+    setInitialValue: (state, payload) =>{
       state.initialValue = payload
+    },
+    setdataProduct: (state, payload) =>{
+        state.dataProduct = payload
     },
   },
 })
@@ -37,5 +40,5 @@ export const productSlice = createSlice({
 
 
 //  export const { increment, decrement, incrementByAmount } = products.actions
-  export const { setInitialValue} = productSlice.actions
+  export const { setInitialValue,setdataProduct} = productSlice.actions
   export default productSlice.reducer
