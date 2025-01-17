@@ -26,6 +26,7 @@ const FormLogin = ({ titleForm }) => {
         <>
             <form onSubmit={handleSubmit}>
                 <h3>{titleForm}</h3>
+                <h3>Welcome to FullStack program</h3>
                 <div>
                     <label>
                         Username:
