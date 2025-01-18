@@ -9,7 +9,8 @@ const FormWithMotionAndHook = ({titleForm}) => {
         username: '',
         email: ''
     });
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false); //variaciòn modal
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setShowModal(true);
