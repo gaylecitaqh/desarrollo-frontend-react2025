@@ -1,48 +1,42 @@
 
 import useForm   from "../Hooks/useForm.js";
 
-const FormLoginWithHook =({titleForm}) =>{
-    const{ formData, handleChange} = useForm({
-        username:'',
-        email:''
+const FormLoginWithHook = ({ titleForm }) => {
+    const { formData, handleChange } = useForm({
+        username: '',
+        email: ''
+    });
 
-});
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('datos del formulario', formData);
+    };
 
-const  handleSubmit  =  ( evento )  =>  {
-    evento .preventDefault ( ) ;
-    console.log ( 'datos del formulario' ,  formData ) ;
-} ;
-
-    return(
+    return (
         <>
             <form onSubmit={handleSubmit}>
-                
-                <h3>{ titleForm }</h3>
-                
+                <h3>{titleForm}</h3>
                 <div>
                     <label>
                         Username:
                         <input
                             type='text'
                             name='username'
-                            value = { formData.username}
+                            value={formData.username}
                             onChange={handleChange}
                             required
-                            
                         />
                     </label>
                 </div>
-
                 <div>
                     <label>
                         Email:
                         <input
                             type='email'
                             name='email'
-                            value = { formData.email}
+                            value={formData.email}
                             onChange={handleChange}
                             required
-                            
                         />
                     </label>
                 </div>
@@ -52,4 +46,4 @@ const  handleSubmit  =  ( evento )  =>  {
     );
 };
 
-export default FormLogin;
+export default FormLoginWithHook;
