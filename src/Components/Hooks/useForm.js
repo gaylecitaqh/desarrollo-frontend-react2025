@@ -1,25 +1,27 @@
-import { useState } from "react";
+//import { useState, useEffect  } from "react"; 
+import { useState  } from "react"; 
 
-const useForm = (initialState = {}) => {
-    const [formData, setFormData] = useState(initialState);
+const useForm = (initialState,onFieldChange) => { 
+    const [formData, setFormData] = useState(initialState); 
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-    
-    const resetForm = () => {
+    // Actualiza el estado interno si el estado inicial cambia
+ /*   useEffect(() => {
         setFormData(initialState);
-    };
-    
-    return {
-        formData,
-        handleChange,
-        resetForm,
-    };
-};
+    }, [initialState]);
+*/
 
-export default useForm;
+    const handleChange = (e) => { 
+        const { name, value } = e.target; 
+        setFormData({ 
+            ...formData, 
+            [name]: value, 
+        }); 
+        if (onFieldChange) { 
+            onFieldChange(name, value); 
+        } 
+    }; 
+    
+   
+        
+    return { formData, handleChange }; }; 
+    export default useForm;

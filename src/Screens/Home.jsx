@@ -1,5 +1,5 @@
 //import Logo from "../Components/Home/Logo.jsx"
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import OpenLink from "../Components/Core/OpenLink.jsx"
 
 import Body from "../Components/Home/Body.jsx"

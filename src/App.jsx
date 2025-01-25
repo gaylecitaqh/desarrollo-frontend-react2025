@@ -1,4 +1,9 @@
 import './App.css'
+import React from 'react';
+import { Provider } from 'react-redux';
+
+//import { Provider } from "react-redux";
+import store from "./Store/store";
 
 import Navigator from './Components/Navigation/Navigator.jsx';
 import Router from './Components/Navigation/Router.jsx';
@@ -7,22 +12,14 @@ function App() {
   
 
   return (
-    <>
-      {/*<Home />
-      <Counter />
-      <Product >
-      <FilterableProductTable />  
-      </Product>*/}
+    <Provider store={store}>
       <Navigator />
       <Router />
-    </>
+    </Provider>
   )
 }
 
 
-/*export default function App() {
-  return <FilterableProductTable products={PRODUCTS} />;
-}*/
 export default App;
 
 
