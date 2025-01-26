@@ -7,16 +7,16 @@ const initialState = {
   userInfo: { username: '', email: '' } 
 } 
 
-export const formSlice = createSlice({ 
+ const formSlice = createSlice({ 
   name:'form', initialState, 
   reducers:{ 
     setInitialValue: (state, action) =>{ state.initialValue = action.payload }, 
     setDataForm: (state, action) =>{ state.dataForm = action.payload }, 
     setUsername: (state, action) => {
-      state.username = action.payload;
+      state.userInfo.username = action.payload;
     },
     setEmail: (state, action) => {
-      state.email = action.payload;
+      state.userInfo.email= action.payload;
   },
     updateForm: (state, action) => { 
       const { name, value } = action.payload;   
@@ -32,7 +32,7 @@ export const formSlice = createSlice({
           module:'',
           password:''}];  // Limpia el arreglo de dataForm
         state.initialValue = 10; // Restablece el valor inicial
-
+       // return initialState; // Resetea el estado
       }
     },
   }, 

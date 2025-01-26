@@ -17,7 +17,7 @@ const FormWithMotionAndHook = ({titleForm}) => {
     const [showPassword, setShowPassword] = useState(false); // Nuevo estado para controlar la visibilidad de la contraseña
     
     const {formData, handleChange} = useForm(
-        { 
+       { 
         module:moduleName || '', 
         username: username || '', //'',
         email: email || '', //'',
@@ -39,8 +39,15 @@ const FormWithMotionAndHook = ({titleForm}) => {
             setShowModalVerification(true); 
             return; 
         }
+        // Verifica los datos en Redux
+        dispatch(setUsername(formData.username));
+        dispatch(setEmail(formData.email));
+
         setShowModal(true); 
         console.log('datos del formulario', formData); 
+        resetForm();
+        console.log('Formulario enviado y limpiado:', formData); 
+
     }; 
     const onCloseModalInfo = () => { 
         setShowModal(false); 
@@ -48,11 +55,6 @@ const FormWithMotionAndHook = ({titleForm}) => {
 
     const onCloseModalVerification = () => {
         setShowModalVerification(false);
-    };
-
-    const handleReset = () => {
-        //dispatch(resetForm());    
-        dispatch(resetForm("logout")); 
     };
 
     // Función para alternar la visibilidad de la contraseña
@@ -176,7 +178,6 @@ const FormWithMotionAndHook = ({titleForm}) => {
             > 
             
             <button type="submit">Enviar</button> 
-            <button type="button" onClick={handleReset}>Reset</button>
 
             </motion.div> 
         </form> 

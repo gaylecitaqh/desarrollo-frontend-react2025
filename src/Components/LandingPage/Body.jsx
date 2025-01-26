@@ -11,7 +11,7 @@ const Body =() =>{
                     Este módulo se centra en el uso de <strong>React</strong>, incluyendo la creación de <strong>componentes</strong>, el manejo de <strong>hooks</strong>, y el uso de <strong>Redux</strong>.
                 </p>
                 <h2>Temas Cubiertos</h2>
-                <ul class="list-container">
+                <ul className="list-container">
                     <li>Componentes funcionales y de clase</li>
                     <li>Uso de <strong>React hooks</strong> como useState y useEffect</li>
                     <li>Creación de <strong>custom hooks</strong> como useForm</li>
