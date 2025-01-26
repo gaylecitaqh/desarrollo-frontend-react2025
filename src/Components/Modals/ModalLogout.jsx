@@ -1,19 +1,30 @@
 import { motion } from "motion/react"
 
-const ModalLogout = ({ children, onClose }) => {
-    return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="bg-white rounded-lg shadow-lg w-96">
-            <button
-                className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
-                onClick={onClose}
+// eslint-disable-next-line react/prop-types
+const ModalLogout = ({ visible,  onClose, onLogout }) => {
+    if (!visible) {
+        return null;
+    }
+    
+return (
+        <div className="modal-overlay">
+            <motion.div
+                className={`notification-success `}
+                initial={{opacity: 0, y: -20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 0.5}}
             >
-                ✕
-            </button>
-            <div>{children}</div>
+                <div>
+                    <p>¿Estas seguro de que quieres cerrar la sesión? 
+                    <button onClick={onLogout}>Presione para salir!!!</button>
+                     </p>
+                </div>
+                <button
+                    className="close-btn-success"
+                    onClick={onClose}>
+                    X
+                </button>
+            </motion.div>
         </div>
-        </div>
-    );
-};
-
+    );};
 export default ModalLogout;

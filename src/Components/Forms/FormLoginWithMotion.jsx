@@ -3,27 +3,35 @@ import { motion } from "motion/react";
 import { useSelector,useDispatch } from 'react-redux';
 import ModalInfo from "../Modals/ModalInfo.jsx"; 
 import ModalVerification from "../Modals/ModalVerification.jsx";
-import { resetForm } from '../../Store/features/form/formSlice.js'; 
+import { setUsername, setEmail, resetForm } from '../../Store/features/form/formSlice.js'; 
 import useForm from "../Hooks/useForm.js"; 
 
-
 const FormWithMotionAndHook = ({titleForm}) => { 
+    const { username, email } = useSelector((state) => state.form.userInfo);
     const dispatch = useDispatch();
     const moduleName = useSelector(state => state.form.dataForm[0].module); 
     const passCod = useSelector(state => state.form.dataForm[0].password); 
+    
     const [showModal, setShowModal] = useState(false); 
     const [showModalVerification, setShowModalVerification] = useState(false); // Control del modal de advertencia
     const [showPassword, setShowPassword] = useState(false); // Nuevo estado para controlar la visibilidad de la contraseña
-
+    
     const {formData, handleChange} = useForm(
         { 
         module:moduleName || '', 
-        username: '',
-        email: '',
-        password:passCod || '', 
-       
-        
-    } ); 
+        username: username || '', //'',
+        email: email || '', //'',
+        password:passCod || '',       
+    },
+        // Callback para sincronizar con Redux
+        (name, value) => {
+            if (name === "username") {
+                dispatch(setUsername(value));
+            } else if (name === "email") {
+                dispatch(setEmail(value));
+            }
+        }
+    ); 
     
     const handleSubmit = (e) => { 
         e.preventDefault(); 
@@ -43,7 +51,8 @@ const FormWithMotionAndHook = ({titleForm}) => {
     };
 
     const handleReset = () => {
-        dispatch(resetForm());    
+        //dispatch(resetForm());    
+        dispatch(resetForm("logout")); 
     };
 
     // Función para alternar la visibilidad de la contraseña

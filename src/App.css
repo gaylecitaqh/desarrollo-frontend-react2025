@@ -132,6 +132,100 @@
   color: #333;
 }
 
-p {
+span {
   color: #000000;
+}
+
+
+/* ************************************************************ */
+
+body {
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+
+}
+.inicio{
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  padding: 20px;
+  font-size: 24px;
+  background-color: #4caf50;
+}
+
+.content {
+ 
+  padding: 20px;
+}
+
+.content h2 {
+  color: #4caf50;
+  font-size: 20px;
+
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+
+  margin-top: 20px;
+  border-top: 2px solid #4caf50;
+  padding-top: 10px;
+  
+}
+
+.content ul li {
+  margin-bottom: 10px;
+}
+
+.content ul li  {
+  color: #000000;
+}
+.content p {
+  text-align: left;
+  color: #000000;
+
+  margin-top: 20px;
+  border-top: 2px solid #4caf50;
+  padding-top: 10px;
+}
+.content h2{
+  text-align: left;
+  color: #000000;
+}
+.footer {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+.footer p {
+
+  text-align: center;
+  color: #000000;
+}
+
+.list-container {
+  columns: 9; /* Define 8 columnas */
+  column-gap: 20px; /* Espacio entre columnas */
+  list-style-type: none; /* Quita los puntos de la lista */
+  padding: 0; /* Elimina el padding por defecto */
+}
+
+.list-container li {
+  break-inside: avoid; /* Evita que los elementos de la lista se rompan dentro de las columnas */
+  padding: 3px 0; /* Espaciado vertical entre los elementos */
+  font-size: 10px;
+  text-align: left;
 }

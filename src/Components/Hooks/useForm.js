@@ -1,27 +1,33 @@
-//import { useState, useEffect  } from "react"; 
 import { useState  } from "react"; 
+//import { useDispatch } from "react-redux";
 
-const useForm = (initialState,onFieldChange) => { 
-    const [formData, setFormData] = useState(initialState); 
+const useForm = (initialState ={}) => { 
+    const [formData, setFormData] = useState({ ...initialState });
+   // const dispatch = useDispatch();
 
-    // Actualiza el estado interno si el estado inicial cambia
- /*   useEffect(() => {
-        setFormData(initialState);
+    /*useEffect(() => {
+        setFormData({ ...initialState });
     }, [initialState]);
 */
-
     const handleChange = (e) => { 
         const { name, value } = e.target; 
         setFormData({ 
             ...formData, 
             [name]: value, 
         }); 
-        if (onFieldChange) { 
-            onFieldChange(name, value); 
-        } 
+        
     }; 
     
+    const resetForm = () => {
+        setFormData({ ...initialState });
+    };
+
+
+
    
         
-    return { formData, handleChange }; }; 
+    return { formData, handleChange,resetForm}; //,setFormData };
+}; 
     export default useForm;
+
+
